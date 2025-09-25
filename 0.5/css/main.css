@@ -1,0 +1,13 @@
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+
+  background: url("/learn CSS/0.5/images/bg.jpg") no-repeat center center fixed;
+  background-size: 70%;
+}
+
+.box {
+  border: 3px solid blue; 
+  width: 60%;
+}
