@@ -1,0 +1,134 @@
+<html>
+<head>
+  <title>Exercise 48 - Nguyễn Đình Tiến</title>
+  <style>
+    body {
+      background:#99ccff; 
+      font-family: Arial, sans-serif; 
+    }
+    .form-container {
+      width:700px; 
+      margin:auto; 
+      padding:20px; 
+    }
+    h2 { text-align:center; }
+    label {
+      display:inline-block;
+      width:100px;       
+      vertical-align:top;
+    }
+    input[type="text"], select, textarea {
+      width:150px;       
+      box-sizing:border-box;
+    }
+    textarea {
+      height:80px;
+    }
+    .form-row {
+      margin-bottom:10px;
+      white-space:nowrap; 
+    }
+    .buttons { 
+      text-align:center; 
+      margin-top:15px; 
+    }
+    input[type="checkbox"], input[type="radio"] {
+      transform:scale(1.2);
+      margin-right:5px;
+    }
+  </style>
+  <script>
+    function registerAlert() {
+      alert("Registration Successful!");
+    }
+  </script>
+</head>
+<body>
+  <div class="form-container">
+    <h2><img src="/exercise48/images/Jackson.gif" alt="Jackson" ></h2>
+    <h2>Registration Form</h2>
+    <p>Register your Jackson Electronics product here</p>
+    <form id="regForm">
+
+      <div class="form-row">
+        <label>First Name:</label>
+        <input type="text" name="fname">
+        <label>Last Name:</label>
+        <input type="text" name="lname">
+      </div>
+
+      <div class="form-row">
+        <label>Address #1:</label>
+        <input type="text" name="addr1">
+      </div>
+
+      <div class="form-row">
+        <label>Address #2:</label>
+        <input type="text" name="addr2">
+      </div>
+
+      <div class="form-row">
+        <label>City:</label>
+        <input type="text" name="city">
+        <label>State:</label>
+        <input type="text" name="state">
+        <label>Zip:</label>
+        <input type="text" name="zip">
+      </div>
+
+      <div class="form-row">
+        <label>Country:</label>
+        <input type="text" value="United States">
+      </div>
+      <hr>
+
+      <div class="form-row">
+        <label>Product:</label>
+        <select>
+          <option>ScanMaster</option>
+          <option>PrinterX</option>
+          <option>MonitorY</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label>Date Purchased:</label>
+        <input type="text" name="date">
+      </div>
+
+      <div class="form-row">
+        <label>Serial #:</label>
+        <input type="text" name="serial">
+      </div>
+
+      <div class="form-row">
+        <label>Used for:</label>
+        <input type="radio" name="used" value="Home">Home
+        <input type="radio" name="used" value="Business">Business
+        <input type="radio" name="used" value="Government">Government
+        <input type="radio" name="used" value="Education">Educational Institution
+        <input type="radio" name="used" value="Other">Other
+      </div>
+
+      <div class="form-row">
+        <label>System:</label>
+        <input type="checkbox" name="sys" value="Windows">Windows
+        <input type="checkbox" name="sys" value="Macintosh">Macintosh
+        <input type="checkbox" name="sys" value="UNIX">UNIX
+        <input type="checkbox" name="sys" value="Other">Other
+      </div>
+      <hr>
+
+      <div class="form-row">
+        <label>Comments?:</label>
+        <textarea name="comments"></textarea>
+      </div>
+
+      <div class="buttons">
+        <input type="button" value="Click to register" onclick="registerAlert()">
+        <input type="reset" value="Click to cancel">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
