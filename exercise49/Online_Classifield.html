@@ -1,0 +1,88 @@
+<html>
+<head>
+  <title>Online_Classified Nguyễn Đình Tiến</title>
+</head>
+<body bgcolor="cyan">
+  <font color="red">
+    <h1><b>Online Classified Search Form</b></h1>
+  </font>
+  <hr/>
+
+  <form id="myForm">
+    <ol type="1">
+      <li>
+        <p><b>Search for a classified in the following sections:</b></p>
+        <input type="radio" id="employment" name="section" value="Employment">
+        <label for="employment">Employment</label>
+
+        <input type="radio" id="personal" name="section" value="Personal">
+        <label for="personal">Personal</label><br>
+
+        <input type="radio" id="forsale" name="section" value="For Sale">
+        <label for="forsale">For Sale</label>
+
+        <input type="radio" id="misc" name="section" value="Miscellaneous">
+        <label for="misc">Miscellaneous</label><br>
+
+        <input type="radio" id="housing" name="section" value="Housing">
+        <label for="housing">Housing</label>
+
+        <input type="radio" id="all" name="section" value="All of the above">
+        <label for="all">All of the above</label><br><br>
+      </li>
+
+      <li>
+        <p><b>Search the following publications:</b></p>
+        <input type="checkbox" id="midwest" name="pub" value="Midwests Times">
+        <label for="midwest">Midwests Times</label>
+
+        <input type="checkbox" id="modern" name="pub" value="Modern News">
+        <label for="modern">Modern News</label><br>
+
+        <input type="checkbox" id="employmenttoday" name="pub" value="Employment Today">
+        <label for="employmenttoday">Employment Today</label>
+
+        <input type="checkbox" id="greatlakes" name="pub" value="Great Lakes Classifieds">
+        <label for="greatlakes">Great Lakes Classifieds</label><br>
+
+        <input type="checkbox" id="middleton" name="pub" value="Middleton Daily">
+        <label for="middleton">Middleton Daily</label>
+
+        <input type="checkbox" id="cashtown" name="pub" value="Cashtown Daily News">
+        <label for="cashtown">Cashtown Daily News</label><br><br>
+      </li>
+
+      <li>
+        <label for="from"><b>From</b></label>
+        <input type="date" id="from" name="from">
+
+        <label for="to"><b>To</b></label>
+        <input type="date" id="to" name="to"><br><br>
+
+        <input type="submit" value="Search">
+      </li>
+
+      <li>
+        <p><b>Enter a few keywords to describe the classified:</b></p>
+        <input type="text" id="keywords" name="keywords" size="40">
+      </li>
+
+      <li>
+        <p><b>Click one of the options below:</b></p>
+
+        <a href="#" onclick="alert('Searching...'); return false;">
+          <img src="/exercise49/Search.gif" alt="Search" title="Search">
+        </a>
+
+        <a href="#" target="_blank">
+          <img src="/exercise49/Help.gif" alt="Help" title="Help">
+        </a>
+
+        <a href="#" onclick="document.getElementById('myForm').reset(); return false;">
+          <img src="/exercise49/Cancel.gif" alt="Cancel" title="Cancel">
+        </a>
+      </li>
+    </ol>
+  </form>
+</body>
+</html>
