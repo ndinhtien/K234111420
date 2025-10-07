@@ -1,0 +1,85 @@
+<html>
+<head>
+  <title>Exercise 51 - Nguyễn Đình Tiến</title>
+  <style>
+    body {
+      background-color: #007870;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+    .container {
+      width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    img {
+      display: block;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: white;
+    }
+    label {
+      display: inline-block;
+      width: 180px;
+      vertical-align: top;
+    }
+    input[type="text"], select {
+      margin-bottom: 6px;
+    }
+    textarea {
+      width: 300px;
+      height: 60px;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function registerAlert() {
+      alert("Registration submitted!");
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img src="/exercise51/Logo.gif" alt="St. Mary's Logo">
+    <h1>Newborn Registration</h1>
+    <form id="regForm">
+      Date: <input type="text" placeholder="mm/dd/yy"><br><br>
+
+      1) Infant's first name: <input type="text"> 
+      Last: <input type="text"><br><br>
+
+      2) Medical Record #: <input type="text"><br><br>
+
+      3) Date of birth: <input type="text" placeholder="mm/dd/yy"><br><br>
+
+      4) Birth weight: <input type="text"><br><br>
+
+      5) APGAR score: <input type="text"><br><br>
+
+      6) Mother's first name: <input type="text"> 
+      Last: <input type="text"><br><br>
+
+      7) Father's first name: <input type="text"> 
+      Last: <input type="text"><br><br>
+
+      8) Physician (check all that apply):<br>
+    <select multiple size="3" style="width:220px;">
+        <option>Dr. Warren Albert</option>
+        <option>Dr. Maria Alvarez</option>
+        <option>Dr. Karen Brinkman</option>
+        <option>Dr. Micheal Kerry</option>
+    </select>
+
+      <div class="buttons">
+        <input type="button" value="Register" onclick="registerAlert()">
+        <input type="reset" value="Cancel">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
