@@ -1,0 +1,117 @@
+<html>
+<head>
+  <title>Exercise 50 - Nguyễn Đình Tiến</title>
+  <style>
+    body {
+      background-color: #bdf3f8;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+    img {
+      display: block;
+      margin: auto;
+    }
+    h2 {
+      text-align: left;
+    }
+    hr {
+      border: 1px solid gray;
+    }
+    input[type="text"], select, textarea {
+      margin: 5px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 5px;
+    }
+    th, td {
+      border: 1px solid gray;
+      padding: 5px;
+    }
+    th {
+      background-color: #c0f0f5;
+    }
+    .btn {
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function submitForm()
+    {
+      alert("Submitted!");
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <img src="/exercise50/DeLong.jpg" alt="DeLong image">
+    <h2>Travel Expense Report</h2>
+    <hr>
+
+    <form id="expenseForm">
+      1) First Name: <input type="text" name="fname">
+      Last Name: <input type="text" name="lname"><br><br>
+
+      2) Social Security Number: <input type="text" name="ssn"><br><br>
+
+      3) Department:
+      <select>
+        <option>Accounting</option>
+        <option>Sales</option>
+        <option>Marketing</option>
+      </select><br><br>
+
+      4) Describe the purpose of your trip:<br>
+      <textarea rows="4" cols="60"></textarea><br><br>
+
+      5) Itemize your travel expenses:
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+        <tr>
+          <td><input type="text" size="8"></td>
+          <td><input type="text" size="25"></td>
+          <td>
+            <select>
+              <option>Meal</option>
+              <option>Lodging</option>
+              <option>Transport</option>
+            </select>
+          </td>
+          <td><input type="text" size="8"></td>
+        </tr>
+        <tr>
+          <td><input type="text" size="8"></td>
+          <td><input type="text" size="25"></td>
+          <td>
+            <select>
+              <option>Meal</option>
+              <option>Lodging</option>
+              <option>Transport</option>
+            </select>
+          </td>
+          <td><input type="text" size="8"></td>
+        </tr>
+      </table><br>
+
+      6) Have you submitted your receipts?
+      <input type="radio" name="receipt">Yes
+      <input type="radio" name="receipt">No<br><br>
+
+      <input type="button" value="Submit travel expenses" onclick="submitForm()" class="btn">
+      <input type="reset" value="Reset" class="btn">
+    </form>
+
+    <p>Questions? Contact Debbie Larson in Accounting (ext. 2150).</p>
+  </div>
+</body>
+</html>
