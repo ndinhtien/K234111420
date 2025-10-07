@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title> Learn radio 2 - Nguyễn Đình Tiến</title>
+    <script>
+        function show_image(value)
+        {
+            //step 1: get the image object by taylor_avatar id
+            img=document.getElementById("taylor_avatar");
+            //step 2: set style attribute for show image
+            img.setAttribute("style","display:block"+value)
+        }
+    </script>
+    </head>
+    <body>
+        <form name="myform">
+            <input type="radio" name="myimage" id="img1" onchange="show_image('block')"/>
+            <label for="img1">Show Image</label>
+            <br/>
+            <input type="radio" name="myimage" id="img2" onchange='show_image("none")'/>
+            <label for="img2">Hide Image</label>
+            <br/>
+            <img src="/exercise14/image/Taylor.jpg" id="taylor_avatar" name="taylor_avatar"/>
+
+        </form>
+        </body>
+</html>
+    

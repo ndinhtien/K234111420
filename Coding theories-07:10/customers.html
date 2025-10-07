@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Customer - Nguyễn Đình Tiến</title>
+        <script>
+            normal_customer=0
+            vip_customer=0
+            function save_customer()
+            {
+                id=frm_customer_input.customer_id.value
+                name=frm_customer_input.customer_name.value
+                email=frm_customer_input.customer_email.value
+                type=frm_customer_input.type_customer.checked
+                if (type==true)
+                    vip_customer=vip_customer+1
+                else
+                    normal_customer=normal_customer+1
+                frm_customer_output.norm_customer.value=normal_customer
+                frm_customer_output.vip_customer.value=vip_customer
+                //alert("Nó mà show cái này lên tức là tới đây là DONE nè")
+                td_customer_id=document.getElementById("td_customer_id")
+                td_customer_id.innerText=id
+                //alert("Tới được đây không??????")
+                td_customer_name=document.getElementById("td_customer_name")
+                td_customer_name.innerText=name
+                td_customer_email=document.getElementById("td_customer_email")
+                td_customer_email.innerHTML="<font color='blue'>"+email+"</font>"
+                //td_customer_email.innerText="<font color='blue'>"+email+"</font>"
+            }
+        </script>
+    </head>
+    <body>
+        <form name="frm_customer_input">
+            <table>
+                <tr>
+                    <td>Customer ID:</td>
+                    <td>
+                        <input type="text" name="customer_id" id="customer_id"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Customer Name:</td>
+                    <td>
+                        <input type="text" name="customer_name" id="customer_name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Customer Email:</td>
+                    <td>
+                        <input type="email" name="customer_email" id="customer_email"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Type of Customer:
+                    </td>
+                    <td>
+                        <input type="checkbox" name="type_customer" id="type_customer"/>
+                        <label for="type_customer">IS VIP</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button" onclick="save_customer()">Save Customer</button>
+                        <button type="reset">Clear</button>
+                        <button type="button">Help</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <form name="frm_customer_output">
+            <table>
+                <tr>
+                    <td>Number of normal Customer:</td>
+                    <td>
+                        <input type="text" name="norm_customer" id="norm_customer"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number of VIP Customer:</td>
+                    <td>
+                        <input type="text" name="vip_customer" id="vip_customer"/>
+                    </td>
+                </tr>
+            </table>
+            <tr>
+                <td colspan="2">
+                    Lasted customer:
+                </td>                
+            </tr>
+            <tr>
+                <td colspan="2" id="td_customer_output">
+                    <table border="1">
+                        <tr>
+                            <td>Customer ID:</td>
+                            <td id="td_customer_id">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Name:</td>
+                            <td id="td_customer_name"></td>
+                        </tr>
+                        <tr>
+                            <td>Customer Email:</td>
+                            <td id="td_customer_email"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </form>
+    </body>
+</html>
