@@ -1,0 +1,14 @@
+<html>
+<head>
+<body>
+  <h2>Message Sent</h2>
+  <script>
+    const p = new URLSearchParams(location.search);
+    document.write(`<p><b>Full Name:</b> ${p.get('name')}</p>`);
+    document.write(`<p><b>Email:</b> ${p.get('email')}</p>`);
+    document.write(`<p><b>Title:</b> ${p.get('title')}</p>`);
+    document.write(`<p><b>Send to:</b> ${p.get('to')}</p>`);
+    document.write(`<p><b>Content:</b> ${p.get('content')}</p>`);
+  </script>
+</body>
+</html>
