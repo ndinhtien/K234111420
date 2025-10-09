@@ -1,0 +1,76 @@
+<html>
+<head>
+    <title>Product - JavaScript</title>
+    <script>
+        function get_tr(id, name, price) {
+            return "<tr><td>" + id + "</td><td>" + name + "</td><td>" + price + "</td></tr>";
+        }
+
+        function get_format(id, name, price) {
+            return "<tr style='background-color:red'><td>" + id + "</td><td>" + name + "</td><td>" + price + "</td></tr>";
+        }
+
+        function do_save_product() {
+            id = frm_product_input.product_id.value;
+            name = frm_product_input.product_name.value;
+            price = frm_product_input.product_price.value;
+            tr=get_tr(id,name,price)
+            if (frm_product_input.product_type.checked === false)
+            {
+                tr = get_format(id, name, price);
+            } 
+            else 
+            {
+                tr = get_tr(id, name, price);
+            }
+            product_body = document.getElementById("product_body");
+            product_body.innerHTML += tr;
+        }
+    </script>
+</head>
+<body>
+    <form name="frm_product_input">
+        <table>
+            <tr>
+                <td>Product ID:</td>
+                <td><input type="text" name="product_id" id="product_id" /></td>
+            </tr>
+            <tr>
+                <td>Product Name:</td>
+                <td><input type="text" name="product_name" id="product_name" /></td>
+            </tr>
+            <tr>
+                <td>Unit Price:</td>
+                <td><input type="text" name="product_price" id="product_price" /></td>
+            </tr>
+            <tr>
+                <td>Type of Product:</td>
+                <td>
+                    <input type="checkbox" name="product_type" id="product_type" />
+                    <label for="product_type">Official</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button type="button" onclick="do_save_product()">Save Product</button>
+                    <button type="reset">Clear</button>
+                    <button type="button">Help</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <table border="1">
+        <caption>List of Product</caption>
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+            </tr>
+        </thead>
+        <tbody id="product_body"></tbody>
+    </table>
+</body>
+</html>
