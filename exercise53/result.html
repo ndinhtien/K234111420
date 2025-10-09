@@ -1,0 +1,14 @@
+<html>
+<head>
+</head>
+<body>
+  <h2>Order Summary</h2>
+  <script>
+    const p = new URLSearchParams(location.search);
+    document.write(`<p><b>Mouse:</b> ${p.get('qty1')} × ${p.get('price1')} = ${p.get('total1')}</p>`);
+    document.write(`<p><b>Keyboard US:</b> ${p.get('qty2')} × ${p.get('price2')} = ${p.get('total2')}</p>`);
+    document.write(`<p><b>USB KingMax:</b> ${p.get('qty3')} × ${p.get('price3')} = ${p.get('total3')}</p>`);
+    document.write(`<h3>Total: ${p.get('grandTotal')}</h3>`);
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>Exercise 53 - Nguyễn Đình Tiến</title>
+</head>
+<body>
+  <h2>Product Order</h2>
+  <form action="result.html" method="get">
+    <table border="1" cellpadding="5" cellspacing="0">
+      <tr>
+        <th>Part Number</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Item total</th>
+      </tr>
+      <tr>
+        <td>C112</td>
+        <td>Mouse</td>
+        <td><input type="text" name="price1" value="19.95$" readonly></td>
+        <td><input type="number" name="qty1" min="0"></td>
+        <td><input type="text" name="total1" readonly></td>
+      </tr>
+      <tr>
+        <td>B124</td>
+        <td>Keyboard US</td>
+        <td><input type="text" name="price2" value="29.95$" readonly></td>
+        <td><input type="number" name="qty2" min="0"></td>
+        <td><input type="text" name="total2" readonly></td>
+      </tr>
+      <tr>
+        <td>U125</td>
+        <td>USB KingMax</td>
+        <td><input type="text" name="price3" value="39.95$" readonly></td>
+        <td><input type="number" name="qty3" min="0"></td>
+        <td><input type="text" name="total3" readonly></td>
+      </tr>
+    </table>
+
+    <p>Total: <input type="text" name="grandTotal" readonly></p>
+    <input type="submit" value="Sum">
+  </form>
+
+  <script>
+    const prices = [19.95, 29.95, 39.95];
+    const qtys = document.querySelectorAll('input[type="number"]');
+    const totals = document.querySelectorAll('input[name^="total"]');
+    const grand = document.querySelector('input[name="grandTotal"]');
+
+    qtys.forEach((q, i) => {
+      q.addEventListener("input", () => {
+        totals[i].value = (q.value * prices[i]).toFixed(2) + "$";
+        let sum = 0;
+        totals.forEach((t) => {
+          if (t.value) sum += parseFloat(t.value);
+        });
+        grand.value = sum.toFixed(2) + "$";
+      });
+    });
+  </script>
+</body>
+</html>
