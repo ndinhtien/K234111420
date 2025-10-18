@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>
+        <script type="text/javascript">
+            var txt="<bookstore><book>"; 
+                txt += "<title>Everyday Italian</title>"; 
+                txt += "<author>Giada De Laurentiis</author>"; 
+                txt += "<year>2005</year>"; 
+                txt += "</book></bookstore>"; 
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td>Xml String:</td>
+                <td id="td_xml_string"></td>
+            </tr>
+            <tr>
+                <td>Title:</td>
+                <td id="td_title"></td>
+            </tr>
+            <tr>
+                <td>Author:</td>
+                <td id="td_author"></td>
+            </tr>
+            <tr>
+                <td>Year:</td>
+                <td id="td_year"></td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            td_xml_string.innerText=txt
+
+            var parser = new DOMParser(); 
+            var xmlDoc = parser.parseFromString(txt,"text/xml"); 
+            title=xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            td_title.innerText=title
+            author=xmlDoc.getElementsByTagName("author")[0].childNodes[0].nodeValue;
+            td_author.innerText=author
+            year=xmlDoc.getElementsByTagName("year")[0].childNodes[0].nodeValue;
+            td_year.innerText=year
+        </script>
+    </body>
+</html>
