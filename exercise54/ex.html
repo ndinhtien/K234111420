@@ -1,0 +1,95 @@
+<html>
+<head>
+  <title>Exercise 54 - Nguyễn Đình Tiến</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 400px;
+    }
+    td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    button {
+      width: 70px;
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Math Calculator</h2>
+
+  <table>
+    <tr>
+      <td>a:</td>
+      <td><input type="text" id="a" value="30"></td>
+    </tr>
+    <tr>
+      <td>b:</td>
+      <td><input type="text" id="b" value="45"></td>
+    </tr>
+    <tr>
+      <td>c:</td>
+      <td><input type="text" id="c" value="90"></td>
+    </tr>
+    <tr>
+      <td>Result:</td>
+      <td><input type="text" id="result" readonly></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <button onclick="findMax()">MAX</button>
+  <button onclick="findMin()">MIN</button>
+  <button onclick="calcSin()">sin(a)</button>
+  <button onclick="calcCos()">Cos(a)</button>
+  <button onclick="calcPower()">a^b</button>
+
+  <script>
+    function getValues() {
+      return {
+        a: parseFloat(document.getElementById("a").value) || 0,
+        b: parseFloat(document.getElementById("b").value) || 0,
+        c: parseFloat(document.getElementById("c").value) || 0
+      };
+    }
+
+    function findMax() {
+      const { a, b, c } = getValues();
+      document.getElementById("result").value = Math.max(a, b, c);
+    }
+
+    function findMin() {
+      const { a, b, c } = getValues();
+      document.getElementById("result").value = Math.min(a, b, c);
+    }
+
+    function calcSin() {
+      const { a } = getValues();
+      document.getElementById("result").value = Math.sin(a * Math.PI / 180);
+    }
+
+    function calcCos() {
+      const { a } = getValues();
+      document.getElementById("result").value = Math.cos(a * Math.PI / 180);
+    }
+
+    function calcPower() {
+      const { a, b } = getValues();
+      document.getElementById("result").value = Math.pow(a, b);
+    }
+  </script>
+
+</body>
+</html>
