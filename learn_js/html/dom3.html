@@ -1,0 +1,152 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>
+        <script type="text/javascript">
+            var datasets=[
+                {ID:"P01",
+                 Name:"Coca",
+                 Quantity:15,
+                 Price:30000,
+                 Photo:"coca.png"   
+                },
+                {ID:"P02",
+                 Name:"Pepsi",
+                 Quantity:20,
+                 Price:35000,
+                 Photo:"pepsi.png"   
+                },
+                {ID:"P03",
+                 Name:"Sting",
+                 Quantity:7,
+                 Price:17000,
+                 Photo:"sting.png"   
+                },
+                {ID:"P04",
+                 Name:"Redbull",
+                 Quantity:9,
+                 Price:25000,
+                 Photo:"redbull.png"   
+                },
+                {ID:"P05",
+                 Name:"Lavie",
+                 Quantity:18,
+                 Price:22000,
+                 Photo:"lavie.png"   
+                }
+            ]
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <caption>List of Products:</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                    <th>Actions:</th>
+                </tr>
+            </thead>
+            <tbody id="product_tbody">
+                
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            function display_products_table()
+            {
+                //get product_tbody element:
+                product_tbody=document.getElementById("product_tbody")
+                //loop all item:
+                for(i=0;i<datasets.length;i++)
+                {
+                    //get a product by index:
+                    product=datasets[i]  
+                    //create a new tr(row):
+                    row=document.createElement("tr")
+                    //create 6 td(s) for this row: 
+                    td_id=document.createElement("td")
+                    td_name=document.createElement("td")
+                    td_quantity=document.createElement("td")
+                    td_price=document.createElement("td")
+                    td_photo=document.createElement("td")
+                    td_action=document.createElement("td")
+                    //assign value for each td(s)
+                    td_id.innerText=product.ID
+                    td_name.innerText=product.Name
+                    td_quantity.innerText=product.Quantity
+                    td_price.innerText=product.Price
+                    
+                    //td_photo.innerText="<later.....>"
+                    img_p=document.createElement("img")
+                    img_p.setAttribute("src","../images/"+product.Photo)
+                    img_p.setAttribute("width","100")
+                    img_p.setAttribute("height","120")
+                    img_p.setAttribute("title","click here to view detail...")
+                    img_p.setAttribute("style","cursor:pointer")
+                    //push img into td_photo
+                    td_photo.appendChild(img_p)
+                    
+                    //td_action.innerText="<to be continued!>"
+                    img_detail=document.createElement("img")
+                    img_detail.setAttribute("src","../images/ic_detail.png")
+                    img_detail.setAttribute("title","view detail")
+                    img_detail.setAttribute("style","cursor:pointer")
+                    td_action.appendChild(img_detail)
+
+                    img_detail.selected_product=product
+                    img_detail.onclick=function()
+                    {
+                        //get selected product:
+                        p=this.selected_product
+                        //convert p object into string (json format):
+                        stringJsonObject=JSON.stringify(p)
+                        //save this string into hardware by localstorage:
+                        localStorage.setItem("selected_product",stringJsonObject)
+                        //open detail page:
+                        window.open("detail.html","_self")
+                    }
+
+
+                    img_edit=document.createElement("img")
+                    img_edit.setAttribute("src","../images/ic_edit.png")
+                    img_edit.setAttribute("title","edit product")
+                    img_edit.setAttribute("style","cursor:pointer")
+                    td_action.appendChild(img_edit)
+
+                    img_delete=document.createElement("img")
+                    img_delete.setAttribute("src","../images/ic_delete.png")
+                    img_delete.setAttribute("title","Remove product")
+                    img_delete.setAttribute("style","cursor:pointer")
+                    td_action.appendChild(img_delete)
+                    //save parent node (tr) for this row:
+                    img_delete.parent_row=row
+                    img_delete.onclick=function()
+                    {
+                        selected_row=this.parent_row
+                        name_remove=selected_row.childNodes[1].innerText
+                        if (confirm("ê, muốn xóa ["+name_remove+"] hả?"))
+                        {
+                            //since selected_row is a child node of product_tbody
+                            product_tbody.removeChild(selected_row)
+                        }
+                    }
+
+
+                    //push td(s) into tr(row)
+                    row.appendChild(td_id)
+                    row.appendChild(td_name)
+                    row.appendChild(td_quantity)
+                    row.appendChild(td_price)
+                    row.appendChild(td_photo)
+                    row.appendChild(td_action)
+                    //push  tr(row) into product_tbody
+                    product_tbody.appendChild(row)    
+                }                
+            }
+            //call function for displaying products:
+            display_products_table()
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>
+        <script src="../js/mainjs.js"></script>
+        <script type="text/javascript">
+            function call_fib()
+            {
+                fib=find_fib(my_form.input_n.value)
+                td_result.innerText=fib
+                invoke_list_fib(my_form.input_n.value,div_list_fibo)
+            }
+            function set_digital_clock()
+            {
+                t=new Date()
+                td_digital_clock.innerText=t.toLocaleTimeString()
+            }
+            
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <fieldset>
+                <legend>Fibonacci numbers!!!!</legend>
+                <table>
+                    <tr>
+                        <td>N:</td>
+                        <td><input type="number" name="input_n" id="input_n"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="button" onclick="call_fib()">Find Fibonacci</button>
+                            <button type="button" onclick="invoke_fib(my_form.input_n.value,td_result);invoke_list_fib(my_form.input_n.value,div_list_fibo)">Find Fibonacci 2</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Result Fib:</td>
+                        <td id="td_result"></td>
+                    </tr>
+                    <tr>
+                        <td>List Fibonacci:</td>
+                        <td>
+                            <div id="div_list_fibo" style="height: 150px;background-color: lavender;overflow-y: scroll;">
+
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="td_digital_clock">My Clock</td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+
+        <div style="background-color: yellow;height: 100px;" onclick="javascript:this.style='height:100px;background-color:red'">
+
+        </div>
+        <script type="text/javascript">
+            //set_digital_clock()
+            setInterval(set_digital_clock,1000)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td>ID:</td>
+                <td id="td_id"></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td id="td_name"></td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td id="td_quantity"></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td id="td_price"></td>
+            </tr>
+            <tr>
+                <td>Photo:</td>
+                <td id="td_photo"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a href="#" onclick="window.location='dom3.html'">Go back to list</a>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            stringJsonObject=localStorage.getItem("selected_product")
+            //convert this string into JsonObject
+            product=JSON.parse(stringJsonObject)
+            td_id.innerText=product.ID
+            td_name.innerText=product.Name
+            td_quantity.innerText=product.Quantity
+            td_price.innerText=product.Price
+            td_photo.innerHTML="<img src='../images/"+product.Photo+"'/>"
+        </script>
+    </body>
+</html>

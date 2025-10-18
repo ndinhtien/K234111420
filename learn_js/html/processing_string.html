@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>
+        <script src="../js/mainjs.js"></script>
+    </head>
+    <body>
+        <form name="my_form">
+            <table>
+                <tr>
+                    <td>Input:</td>
+                    <td>
+                        <input type="text" name="item_input" id="item_input" value="P01;Coca;15"/>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button type="button" onclick="get_detail_product_infor()">Analyze</button></td>
+                </tr>
+                <tr>
+                    <td>ID:</td>
+                    <td id="td_id"></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td id="td_name"></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td id="td_price"></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

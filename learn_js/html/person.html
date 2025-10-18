@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>
+        <script type="text/javascript">
+            var person={
+                ID:"CUS01",
+                FirstName:"OBAMA",
+                LastName:"Barac",
+                Birthday:new Date(1960,2,11),
+                FullName:function()
+                {
+                    return this.LastName+" "+this.FirstName
+                },
+                GetAge:function()
+                {
+                    return new Date().getFullYear()-this.Birthday.getFullYear()
+                },
+                Photo:"k23_1e_2e.jpg"
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td>ID:</td>
+                <td id="td_id"></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td id="td_first_name"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td id="td_last_name"></td>
+            </tr>
+            <tr>
+                <td>Full Name:</td>
+                <td id="td_full_name"></td>
+            </tr>
+            <tr>
+                <td>Birthday:</td>
+                <td id="td_birthday"></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td id="td_age"></td>
+            </tr>
+            <tr>
+                <td>Photo:</td>
+                <td>
+                    <img id="img_photo" width="300px" height="200px"/>
+                </td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            td_id.innerText=person.ID
+            td_first_name.innerText=person.FirstName
+            td_last_name.innerText=person["LastName"]
+            td_full_name.innerText=person.FullName()
+            td_birthday.innerText=person.Birthday.toDateString()
+            td_age.innerText=person.GetAge()
+            img_photo.src="../images/"+person.Photo
+        </script>
+    </body>
+</html>
