@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Login - System</title>
+        <script>
+            accounts=[
+                {"user":"admin",
+                  "password":"123"  
+                },
+                {"user":"employee",
+                  "password":"456"  
+                },
+            ]
+        </script>
+        <script type="text/javascript">
+            function process_login()
+            {
+                uid=my_form.user_name.value
+                pwd=my_form.password.value
+                login_ac=null
+                for(i=0;i<accounts.length;i++)
+                {
+                    ac=accounts[i]
+                    if(ac.user==uid && ac.password==pwd)
+                    {
+                        //login thành công công
+                        login_ac=ac
+                        break
+                    }   
+                }
+                if (login_ac==null)
+                {
+                    alert("Login failed, please contact to ADMIN")
+                }
+                else
+                {
+                    
+                    window.location="xml_ajax.html"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="my_form">
+            <fieldset>
+                <legend>Login ABC System:</legend>
+                <table>
+                    <tr>
+                        <td rowspan="6">
+                            <img src="images/ic_admin.png" width="200" height="250"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>User:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" name="user_name" id="user_name"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="password" name="password" id="password"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="save_infor" id="save_infor"/>
+                            <label for="save_infor">Save login information</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button type="button" onclick="process_login()">Login</button>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
