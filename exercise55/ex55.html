@@ -1,0 +1,121 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise 55 - Nguyễn Đình Tiến</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 400px;
+    }
+    td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+    th {
+      background-color: #dfeee0;
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #000;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #result {
+      color: red;
+      font-weight: bold;
+    }
+    button {
+      width: 150px;
+      padding: 8px;
+      margin-top: 10px;
+      border: 2px solid #b7a561;
+      border-radius: 6px;
+      background-color: #f8f8f8;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #f0eecf;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <tr>
+      <th colspan="2">The quadratic equation</th>
+    </tr>
+    <tr>
+      <td>a:</td>
+      <td><input type="text" id="a" value="1"></td>
+    </tr>
+    <tr>
+      <td>b:</td>
+      <td><input type="text" id="b" value="3"></td>
+    </tr>
+    <tr>
+      <td>c:</td>
+      <td><input type="text" id="c" value="-4"></td>
+    </tr>
+    <tr>
+      <td>Result:</td>
+      <td><div id="result"></div></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <button onclick="solve()">Find solution</button>
+        <button onclick="clearFields()">Clear</button>
+      </td>
+    </tr>
+  </table>
+
+  <script>
+    // Hàm giải phương trình bậc 2
+    function solve() {
+      let a = parseFloat(document.getElementById("a").value);
+      let b = parseFloat(document.getElementById("b").value);
+      let c = parseFloat(document.getElementById("c").value);
+      let result = document.getElementById("result");
+
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        result.innerHTML = "Please enter valid numbers!";
+        return;
+      }
+
+      if (a === 0) {
+        if (b === 0) {
+          result.innerHTML = (c === 0) ? "Infinite solutions" : "No solution";
+        } else {
+          result.innerHTML = "x = " + (-c / b);
+        }
+      } else {
+        let delta = b * b - 4 * a * c;
+        if (delta < 0) {
+          result.innerHTML = "No real solution";
+        } else if (delta === 0) {
+          let x = -b / (2 * a);
+          result.innerHTML = "x1 = x2 = " + x;
+        } else {
+          let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+          let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+          result.innerHTML = `x1 = ${x1} ; x2 = ${x2}`;
+        }
+      }
+    }
+
+    // Hàm xóa dữ liệu
+    function clearFields() {
+      document.getElementById("a").value = "";
+      document.getElementById("b").value = "";
+      document.getElementById("c").value = "";
+      document.getElementById("result").innerHTML = "";
+    }
+  </script>
+
+</body>
+</html>
