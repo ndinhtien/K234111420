@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Exercise 56 - Nguyễn Đình Tiến</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 10px;
+    vertical-align: top;
+  }
+  th:first-child, td:first-child {
+    width: 49%;
+  }
+  th {
+    text-align: left;
+    font-size: 20px;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 31%;
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .button-grid {
+    max-width: 800px;
+  }
+  .button-row {
+    display: flex;
+  }
+  .button-row button {
+    flex: 1;
+    margin: 5px;
+  }
+  p.footer {
+    text-align: left;
+    font-weight: bold;
+    margin-top: 15px;
+    flex: 1;
+    margin: 5px;
+    padding: 8px;
+  }
+</style>
+</head>
+
+<body>
+  <h1>Using String Processing functions</h1>
+  <table>
+    <tr>
+      <th>Input Data:</th>
+      <th>Result:</th>
+    </tr>
+    <tr>
+      <td><textarea id="input"></textarea></td>
+      <td><textarea id="output" readonly></textarea></td>
+    </tr>
+  </table>
+
+  <div class="button-grid">
+    <div class="button-row">
+      <button onclick="enterData()">Enter Data</button>
+      <button onclick="countUpper()">Count the number of uppercase characters</button>
+    </div>
+    <div class="button-row">
+      <button onclick="toUpper()">Uppercase display</button>
+      <button onclick="outputOneWord()">Output one word per line</button>
+    </div>
+    <div class="button-row">
+      <button onclick="toLower()">Lowercase display</button>
+      <button onclick="wordCount()">Word count</button>
+    </div>
+    <div class="button-row">
+      <button onclick="countLower()">Count the number of lowercase characters</button>
+      <button onclick="printVowels()">Print vowels, consonants</button>
+    </div>
+    <div class="button-row">
+      <p class="footer">W3C's String Processing Website</p>
+    </div>
+  </div>
+
+  <script>
+    function getInput() {
+      return document.getElementById("input").value;
+    }
+    function setOutput(text) {
+      document.getElementById("output").value = text;
+    }
+
+    function enterData() {
+      setOutput(getInput());
+    }
+
+    function countUpper() {
+      let text = getInput();
+      let count = (text.match(/[A-Z]/g) || []).length;
+      setOutput("Number of uppercase characters: " + count);
+    }
+
+    function countLower() {
+      let text = getInput();
+      let count = (text.match(/[a-z]/g) || []).length;
+      setOutput("Number of lowercase characters: " + count);
+    }
+
+    function toUpper() {
+      setOutput(getInput().toUpperCase());
+    }
+
+    function toLower() {
+      setOutput(getInput().toLowerCase());
+    }
+
+    function wordCount() {
+      let words = getInput().trim().split(/\s+/);
+      setOutput("Word count: " + (getInput().trim() === "" ? 0 : words.length));
+    }
+
+    function outputOneWord() {
+      let words = getInput().trim().split(/\s+/);
+      setOutput(words.join("\n"));
+    }
+
+    function printVowels() {
+      let text = getInput().toLowerCase();
+      let vowels = text.match(/[aeiou]/g) || [];
+      let consonants = text.match(/[bcdfghjklmnpqrstvwxyz]/g) || [];
+      setOutput("Vowels: " + vowels.join(", ") + "\nConsonants: " + consonants.join(", "));
+    }
+  </script>
+</body>
+</html>
