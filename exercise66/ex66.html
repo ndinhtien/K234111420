@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Info</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <table id="studentTable">
+        <tr>
+            <th colspan="2">Student Information</th>
+        </tr>
+        <tr>
+            <td>Student ID:</td>
+            <td id="studentId"></td>
+        </tr>
+        <tr>
+            <td>Student Name:</td>
+            <td id="studentName"></td>
+        </tr>
+        <tr>
+            <td>Birthday:</td>
+            <td id="birthday"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td id="gender"></td>
+        </tr>
+    </table>
+
+    <script>
+        // XML string
+        const xmlString = `
+            <student>
+                <id>987456</id>
+                <name>Marie Curie</name>
+                <birthday>7/11/1867</birthday>
+                <gender>Woman</gender>
+            </student>
+        `;
+
+        // Parse XML string
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+
+        // Get elements and display data
+        document.getElementById("studentId").textContent = xmlDoc.getElementsByTagName("id")[0].textContent;
+        document.getElementById("studentName").textContent = xmlDoc.getElementsByTagName("name")[0].textContent;
+        document.getElementById("birthday").textContent = xmlDoc.getElementsByTagName("birthday")[0].textContent;
+        document.getElementById("gender").textContent = xmlDoc.getElementsByTagName("gender")[0].textContent;
+
+        // Add mouse events to table rows (excluding header)
+        const rows = document.querySelectorAll("#studentTable tr:not(:first-child)");
+        rows.forEach(row => {
+            row.addEventListener("mouseover", () => {
+                row.style.backgroundColor = "blue";
+                row.style.color = "white";
+            });
+            row.addEventListener("mouseout", () => {
+                row.style.backgroundColor = "white";
+                row.style.color = "black";
+            });
+        });
+    </script>
+</body>
+</html>
