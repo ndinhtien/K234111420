@@ -1,0 +1,74 @@
+.card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+
+    select, button {
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    select {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      border: none;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+  .result {
+    margin-top: 20px;
+
+    h4 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        border-bottom: 1px solid #eee;
+      }
+
+      td {
+        padding: 10px;
+        text-align: left;
+
+        &:first-child {
+          font-weight: bold;
+          width: 35%;
+          color: #666;
+        }
+      }
+    }
+  }
+}
