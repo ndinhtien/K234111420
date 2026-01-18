@@ -1,0 +1,31 @@
+<p>listcustomer3 works!</p>
+From Age: 
+<select #fromAge>
+    <option *ngFor="let age of arr_ages" [value]="age">{{ age }}</option>
+</select>
+
+To Age: 
+<select #toAge>
+    <option *ngFor="let age of arr_ages" [value]="age">{{ age }}</option>
+</select>
+
+<button (click)="do_filter(fromAge.value, toAge.value)">Filter</button>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Picture</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of customers">
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.age }}</td>
+            <td><img [src]="c.picture" alt="{{ c.name }}" width="50"></td>
+        </tr>
+    </tbody>
+</table>

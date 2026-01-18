@@ -1,0 +1,42 @@
+<p>ex14catelog works!</p>
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+  <tr>
+    <th>Mã Danh Mục</th>
+    <th>Tên Danh Mục</th>
+  </tr>
+</table>
+
+
+  
+<div *ngFor="let cate of categories"
+style="margin-bottom: 20px; border:1px solid #999; padding:10px">
+
+<!-- Dòng dữ liệu danh mục -->
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<tr>
+ <td style="width:50%">{{ cate.Cateid }}</td>
+ <td style="width:50%">{{ cate.CateName }}</td>
+</tr>
+</table>
+
+
+<!-- Product list -->
+<table border="1" width="100%" cellspacing="0" cellpadding="5">
+<tr>
+ <th>Mã Sản Phẩm</th>
+ <th>Tên Sản Phẩm</th>
+ <th>Giá Sản Phẩm</th>
+ <th>Picture</th>
+</tr>
+
+<tr *ngFor="let p of cate.Products">
+ <td>{{ p.ProductId }}</td>
+ <td>{{ p.ProductName }}</td>
+ <td>{{ p.Price }}</td>
+ <td>
+   <img [src]="p.Image" width="60" />
+ </td>
+</tr>
+</table>
+
+</div>

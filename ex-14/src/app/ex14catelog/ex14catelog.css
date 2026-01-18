@@ -1,0 +1,72 @@
+/* Toàn bộ component */
+:host {
+    display: block;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Khung mỗi danh mục */
+  div {
+    background-color: #fafafa;
+    border-radius: 6px;
+  }
+  
+  /* Table chung */
+  table {
+    border-collapse: collapse;
+    margin-top: 8px;
+  }
+  
+  /* Header */
+  th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Cell */
+  td, th {
+    border: 1px solid #666;
+    padding: 8px;
+  }
+  
+  /* Bảng danh mục (nhỏ gọn) */
+  table:first-of-type {
+    margin-bottom: 10px;
+  }
+  
+  /* Bảng sản phẩm */
+  table:last-of-type {
+    margin-top: 10px;
+  }
+  
+  /* Ảnh sản phẩm */
+  img {
+    display: block;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Giá tiền căn phải cho đẹp */
+  td:nth-child(3) {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  /* Tiêu đề cột */
+  th {
+    color: #333;
+  }
+  
+  /* Responsive nhẹ */
+  @media (max-width: 768px) {
+    table {
+      font-size: 13px;
+    }
+  
+    img {
+      width: 45px;
+    }
+  }
+  
